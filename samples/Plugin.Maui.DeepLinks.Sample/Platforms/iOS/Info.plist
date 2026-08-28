@@ -30,7 +30,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.nugetworld.plugin.maui.deeplinks.sample</string>
+			<string>com.mauiessentials.plugin.maui.deeplinks.sample</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>myapp</string>

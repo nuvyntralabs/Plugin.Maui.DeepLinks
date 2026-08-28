@@ -20,9 +20,9 @@
     <PackageId>Plugin.Maui.DeepLinks</PackageId>
     <Title>.NET MAUI DeepLinks — App Links, Universal Links, schemes</Title>
     <Description>Pleasant deep linking for .NET MAUI on iOS and Android: App Links, Universal Links, custom schemes, route maps, cold/warm start, authentication-required links, deferred navigation, and navigation stack restoration.</Description>
-    <PackageTags>dotnet-maui;maui;maui-plugin;maui-utilities;cross-platform;android;ios;nuget;nugetworld;deeplink;deep-links;app-links;universal-links;custom-scheme;shell;auth-restore</PackageTags>
+    <PackageTags>dotnet-maui;maui;maui-plugin;maui-utilities;cross-platform;android;ios;nuget;mauiessentials;deeplink;deep-links;app-links;universal-links;custom-scheme;shell;auth-restore</PackageTags>
     <Authors>Niladri</Authors>
-    <Company>NugetWorld</Company>
+    <Company>MauiEssentials</Company>
     <Copyright>Copyright © 2026 Niladri</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
