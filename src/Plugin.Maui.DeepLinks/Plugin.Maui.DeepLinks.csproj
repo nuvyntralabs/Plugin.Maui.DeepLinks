@@ -18,9 +18,9 @@
     <RootNamespace>Plugin.Maui.DeepLinks</RootNamespace>
     <AssemblyName>Plugin.Maui.DeepLinks</AssemblyName>
     <PackageId>Plugin.Maui.DeepLinks</PackageId>
-    <Title>Plugin.Maui.DeepLinks</Title>
+    <Title>.NET MAUI DeepLinks — App Links, Universal Links, schemes</Title>
     <Description>Pleasant deep linking for .NET MAUI on iOS and Android: App Links, Universal Links, custom schemes, route maps, cold/warm start, authentication-required links, deferred navigation, and navigation stack restoration.</Description>
-    <PackageTags>maui;ios;android;deeplink;deep-link;applinks;universal-links;custom-scheme;navigation;shell;auth;plugin</PackageTags>
+    <PackageTags>dotnet-maui;maui;maui-plugin;maui-utilities;cross-platform;android;ios;nuget;nugetworld;deeplink;deep-links;app-links;universal-links;custom-scheme;shell;auth-restore</PackageTags>
     <Authors>Niladri</Authors>
     <Company>NugetWorld</Company>
     <Copyright>Copyright © 2026 Niladri</Copyright>
@@ -29,8 +29,8 @@
     <PackageProjectUrl>https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>Initial release. Map path templates to handlers or Shell routes. Android App Links, iOS Universal Links, custom schemes, cold/warm start, authentication-required restore, deferred navigation, and navigation stack restoration.</PackageReleaseNotes>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>LLM-friendly README, llms.txt, AGENTS.md, and improved NuGet title/tags for coding-agent discoverability.</PackageReleaseNotes>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

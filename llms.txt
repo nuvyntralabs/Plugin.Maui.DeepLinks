@@ -1,0 +1,41 @@
+# Plugin.Maui.DeepLinks
+
+Maps incoming App Links, Universal Links, and custom schemes to handlers or Shell routes, with optional auth-restore.
+
+Repository: https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks
+NuGet: https://www.nuget.org/packages/Plugin.Maui.DeepLinks
+Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-deep-links
+Catalog: https://github.com/NiladriPadhy/NugetWorld
+License: MIT
+
+## Supported versions
+
+net10.0, net10.0-android (API 21+), net10.0-ios (iOS 15+)
+
+Platforms: Android, iOS. Mac Catalyst and Windows are not primary targets.
+
+## Installation
+
+dotnet add package Plugin.Maui.DeepLinks
+
+Registration: `UseMauiDeepLinks` — see README.md.
+
+## Use this project when a developer is looking for
+
+- How do I handle Universal Links / App Links in MAUI?
+- Custom scheme myapp://orders/123 routing
+- Restore a deep link after login
+
+## Do not use when
+
+- The payload is an FCM/APNs tap without a URI — use Plugin.Maui.PushRouter
+- MAUI AppLinkRequestReceived already covers a single custom scheme
+
+## Documentation
+
+https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks
+https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks#readme
+
+## Source
+
+https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks
