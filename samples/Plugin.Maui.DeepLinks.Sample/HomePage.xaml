@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plugin.Maui.DeepLinks.Sample.HomePage"
+             Title="DeepLinks">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Make deep linking pleasant."
+                   FontSize="22"
+                   FontAttributes="Bold" />
+            <Label x:Name="StatusLabel"
+                   TextColor="{StaticResource Gray600}" />
+            <Label x:Name="LastLabel"
+                   LineBreakMode="WordWrap" />
+
+            <Button Text="Sign in" Clicked="OnSignIn" />
+            <Button Text="Sign out" Clicked="OnSignOut" />
+
+            <BoxView HeightRequest="1" Color="{StaticResource Gray200}" />
+            <Label Text="Public links" FontAttributes="Bold" />
+            <Button Text="https://example.com/orders/123" Clicked="OnHttpsOrder" />
+            <Button Text="myapp://orders/456" Clicked="OnSchemeOrder" />
+
+            <Label Text="Authentication-required" FontAttributes="Bold" />
+            <Button Text="https://example.com/account/settings" Clicked="OnAccount" />
+
+            <Label Text="Navigation stack" FontAttributes="Bold" />
+            <Button Text="Open catalog (then deep link)" Clicked="OnCatalog" />
+            <Button Text="Restore previous stack" Clicked="OnRestore" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

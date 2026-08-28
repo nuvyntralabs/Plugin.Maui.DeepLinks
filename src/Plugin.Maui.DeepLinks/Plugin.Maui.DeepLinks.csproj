@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net10.0-android;net10.0-ios</TargetFrameworks>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+
+    <RootNamespace>Plugin.Maui.DeepLinks</RootNamespace>
+    <AssemblyName>Plugin.Maui.DeepLinks</AssemblyName>
+    <PackageId>Plugin.Maui.DeepLinks</PackageId>
+    <Title>Plugin.Maui.DeepLinks</Title>
+    <Description>Pleasant deep linking for .NET MAUI on iOS and Android: App Links, Universal Links, custom schemes, route maps, cold/warm start, authentication-required links, deferred navigation, and navigation stack restoration.</Description>
+    <PackageTags>maui;ios;android;deeplink;deep-link;applinks;universal-links;custom-scheme;navigation;shell;auth;plugin</PackageTags>
+    <Authors>Niladri</Authors>
+    <Company>NugetWorld</Company>
+    <Copyright>Copyright © 2026 Niladri</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NiladriPadhy/Plugin.Maui.DeepLinks</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.0.0</Version>
+    <PackageReleaseNotes>Initial release. Map path templates to handlers or Shell routes. Android App Links, iOS Universal Links, custom schemes, cold/warm start, authentication-required restore, deferred navigation, and navigation stack restoration.</PackageReleaseNotes>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IsPackable>true</IsPackable>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)..\..\artifacts</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Plugin.Maui.DeepLinks.Tests" />
+  </ItemGroup>
+
+</Project>
