@@ -1,5 +1,7 @@
 # Plugin.Maui.DeepLinks
 
+[![NuGet](https://img.shields.io/nuget/v/Plugin.Maui.DeepLinks.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.Maui.DeepLinks)
+
 Make deep linking actually pleasant.
 
 A .NET MAUI plugin for **iOS** and **Android** that maps incoming URIs to handlers:
@@ -22,6 +24,8 @@ myapp://orders/123
 ```
 
 ## Install
+
+Package: [https://www.nuget.org/packages/Plugin.Maui.DeepLinks](https://www.nuget.org/packages/Plugin.Maui.DeepLinks)
 
 ```bash
 dotnet add package Plugin.Maui.DeepLinks
