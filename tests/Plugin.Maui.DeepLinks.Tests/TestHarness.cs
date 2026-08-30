@@ -2,7 +2,7 @@ namespace Plugin.Maui.DeepLinks.Tests;
 
 sealed class FakeClock : IClock
 {
-    public DateTimeOffset UtcNow { get; set; } = new(2026, 8, 28, 12, 0, 0, TimeSpan.Zero);
+    public DateTimeOffset UtcNow { get; set; } = DateTimeOffset.UtcNow;
 
     public void Advance(TimeSpan duration) => UtcNow += duration;
 }
