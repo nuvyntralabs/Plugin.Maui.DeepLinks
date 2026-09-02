@@ -67,6 +67,8 @@ static class Harness
             DeduplicateWindow = TimeSpan.Zero,
             LoginPath = "//login"
         };
+        options.Hosts.Add("example.com");
+        options.CustomSchemes.Add("myapp");
         configure?.Invoke(options);
 
         var resolvedStore = options.Store ?? store;

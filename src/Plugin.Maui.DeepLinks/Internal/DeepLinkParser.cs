@@ -55,12 +55,17 @@ static class DeepLinkParser
         var scheme = uri.Scheme;
         if (IsHttp(scheme))
         {
-            return HostMatches(uri.Host, options.Hosts);
+            if (IsCleartextHttp(scheme) && !options.AllowInsecureHttp)
+            {
+                return false;
+            }
+
+            return HostMatches(uri.Host, options.Hosts, options.PermissiveMode);
         }
 
         if (options.CustomSchemes.Count == 0)
         {
-            return true;
+            return options.PermissiveMode;
         }
 
         foreach (var allowed in options.CustomSchemes)
@@ -105,7 +110,7 @@ static class DeepLinkParser
             return RouteMatcher.NormalizePath(absolutePath);
         }
 
-        if (HostMatches(host, options.Hosts) && options.Hosts.Count > 0)
+        if (HostMatches(host, options.Hosts, allowEmpty: false) && options.Hosts.Count > 0)
         {
             return RouteMatcher.NormalizePath(absolutePath);
         }
@@ -141,11 +146,11 @@ static class DeepLinkParser
         return result;
     }
 
-    public static bool HostMatches(string host, IList<string> allowed)
+    public static bool HostMatches(string host, IList<string> allowed, bool allowEmpty = false)
     {
         if (allowed.Count == 0)
         {
-            return true;
+            return allowEmpty;
         }
 
         foreach (var pattern in allowed)
@@ -176,6 +181,9 @@ static class DeepLinkParser
     static bool IsHttp(string scheme) =>
         scheme.Equals(Uri.UriSchemeHttps, StringComparison.OrdinalIgnoreCase)
         || scheme.Equals(Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase);
+
+    static bool IsCleartextHttp(string scheme) =>
+        scheme.Equals(Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase);
 
     static string Decode(string value)
     {

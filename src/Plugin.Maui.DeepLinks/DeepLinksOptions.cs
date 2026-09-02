@@ -7,14 +7,27 @@ public sealed class DeepLinksOptions
 {
     /// <summary>
     /// HTTPS hosts accepted for App Links / Universal Links, for example <c>example.com</c>.
-    /// Empty means any host. Prefix with <c>*.</c> to allow a domain and its subdomains.
+    /// Empty rejects HTTP(S) links unless <see cref="PermissiveMode"/> is <c>true</c>.
+    /// Prefix with <c>*.</c> to allow a domain and its subdomains.
     /// </summary>
     public Collection<string> Hosts { get; } = [];
 
     /// <summary>
-    /// Custom URL schemes, for example <c>myapp</c>. Empty means any non-http(s) scheme is accepted.
+    /// Custom URL schemes, for example <c>myapp</c>.
+    /// Empty rejects custom-scheme links unless <see cref="PermissiveMode"/> is <c>true</c>.
     /// </summary>
     public Collection<string> CustomSchemes { get; } = [];
+
+    /// <summary>
+    /// When <c>true</c>, empty <see cref="Hosts"/> accepts any HTTP(S) host and empty
+    /// <see cref="CustomSchemes"/> accepts any custom scheme. Default is <c>false</c> (fail closed).
+    /// </summary>
+    public bool PermissiveMode { get; set; }
+
+    /// <summary>
+    /// When <c>true</c>, <c>http://</c> App Links are accepted. Default is <c>false</c> (HTTPS only).
+    /// </summary>
+    public bool AllowInsecureHttp { get; set; }
 
     /// <summary>
     /// Maps registered before the host is built.

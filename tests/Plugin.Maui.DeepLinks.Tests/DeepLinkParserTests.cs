@@ -110,4 +110,38 @@ public sealed class DeepLinkParserTests
         var query = DeepLinkParser.ParseQuery(new Uri("https://example.com/search?q=a+b&q=c%26d"));
         Assert.Equal("c&d", query["q"]);
     }
+
+    [Fact]
+    public void Empty_Allowlists_Reject_By_Default()
+    {
+        var options = new DeepLinksOptions();
+
+        Assert.False(DeepLinkParser.TryParse("https://evil.com/admin", DeepLinkLaunch.Warm, options, out _));
+        Assert.False(DeepLinkParser.TryParse("myapp://orders/1", DeepLinkLaunch.Warm, options, out _));
+        Assert.False(DeepLinkParser.HostMatches("evil.com", options.Hosts));
+    }
+
+    [Fact]
+    public void PermissiveMode_Accepts_Any_Host_And_Scheme()
+    {
+        var options = new DeepLinksOptions { PermissiveMode = true };
+
+        Assert.True(DeepLinkParser.TryParse("https://evil.com/admin", DeepLinkLaunch.Warm, options, out var https));
+        Assert.Equal("/admin", https!.Path);
+        Assert.True(DeepLinkParser.TryParse("other://orders/1", DeepLinkLaunch.Warm, options, out var custom));
+        Assert.Equal("/orders/1", custom!.Path);
+    }
+
+    [Fact]
+    public void Rejects_Cleartext_Http_Unless_Allowed()
+    {
+        var options = new DeepLinksOptions();
+        options.Hosts.Add("example.com");
+
+        Assert.False(DeepLinkParser.TryParse("http://example.com/orders/1", DeepLinkLaunch.Warm, options, out _));
+
+        options.AllowInsecureHttp = true;
+        Assert.True(DeepLinkParser.TryParse("http://example.com/orders/1", DeepLinkLaunch.Warm, options, out var link));
+        Assert.Equal("/orders/1", link!.Path);
+    }
 }

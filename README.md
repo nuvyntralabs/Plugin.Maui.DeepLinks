@@ -95,6 +95,16 @@ DeepLinks.Map("/orders/{id}", "order?id={id}");
 | **Authentication-required links** | Persist the original URI, open login, restore after sign-in |
 | **Deferred navigation** | Not-ready queue and auth hold, including process death |
 | **Navigation stack restoration** | Snapshot before dispatch; `RestoreNavigationStackAsync()` |
+| **Allowlists** | Empty `Hosts` / `CustomSchemes` reject links unless `PermissiveMode` is `true` |
+
+## Allowlists
+
+Incoming App Links, Universal Links, and custom schemes are **fail-closed**.
+
+- `Hosts` must list every HTTPS host you accept (for example `example.com`). An empty list rejects HTTPS links.
+- `CustomSchemes` must list every custom scheme (for example `myapp`). An empty list rejects `myapp://` links.
+- Set `PermissiveMode = true` only when you intentionally want any host or scheme.
+- `http://` links are rejected unless `AllowInsecureHttp = true`.
 
 ## Authentication-required links
 
@@ -206,6 +216,7 @@ var links = DeepLinks.Create(new DeepLinksOptions
 {
     Hosts = { "example.com" },
     CustomSchemes = { "myapp" },
+    // PermissiveMode = true, // only if you intentionally accept any host / scheme
     IsAuthenticated = () => session.IsLoggedIn,
     LoginPath = "//login"
 });
@@ -232,7 +243,7 @@ dotnet build samples/Plugin.Maui.DeepLinks.Sample/Plugin.Maui.DeepLinks.Sample.c
 dotnet pack src/Plugin.Maui.DeepLinks/Plugin.Maui.DeepLinks.csproj -c Release -o artifacts
 ```
 
-The `.nupkg` is written to `artifacts/Plugin.Maui.DeepLinks.1.0.0.nupkg`.
+The `.nupkg` is written to `artifacts/Plugin.Maui.DeepLinks.1.0.6.nupkg`.
 
 ## License
 
