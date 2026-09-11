@@ -7,7 +7,7 @@ Maps incoming App Links, Universal Links, and custom schemes to handlers or Shel
 - Package: `Plugin.Maui.DeepLinks`
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.DeepLinks
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeepLinks
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-deep-links
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-deep-links/
 - Catalog: https://github.com/nuvyntralabs/MauiEssentials
 - Versions: net10.0, net10.0-android (API 21+), net10.0-ios (iOS 15+)
 
